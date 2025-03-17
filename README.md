@@ -7,6 +7,7 @@ The files should be run in the following order. File paths in each file may need
 -  2. paper-unzip-merge-census.py
 -  3a. paper-crossing-filters.R
 -  3b. paper-crossing-filters.R
+-  3c. paper-crossing-utah.R
 -  4. paper-crossing-census-buffers.py
 -  5. paper-crossing-populations.R
 -  6. paper-daly-calcs.R
