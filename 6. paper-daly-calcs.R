@@ -83,23 +83,23 @@ total_DALY <- sum(night_accidents1$DALY)
 total_DALY
 
 # Total DALYs saved under assumption of (195%-23%) increase of night night accidents from FRA study
-total_DALY*(1 + 1.95-0.23) - total_DALY
+total_DALY*(1 + 1.95-0.45) - total_DALY
 
 # DALYs lost from public health and safety costs of train horn rule
 # Lower bound with DW of 0.02 (annoyance)
 (918251*0.02*5)
 # Decimal percent
-(918251*0.02*5)/(total_DALY*(1 + 1.95-0.23) - total_DALY)-1
-(918251*0.02*5*0.25)/(total_DALY*(1 + 1.95-0.23) - total_DALY)-1
-(918251*0.02*5*0.50)/(total_DALY*(1 + 1.95-0.23) - total_DALY)-1
+(918251*0.02*5)/(total_DALY*(1 + 1.95-0.45) - total_DALY)-1
+(918251*0.02*5*0.25)/(total_DALY*(1 + 1.95-0.45) - total_DALY)-1
+(918251*0.02*5*0.50)/(total_DALY*(1 + 1.95-0.45) - total_DALY)-1
 
 # Upper bound with DW of 0.07 (disturbance)
 (918251*0.07*5)
 # Decimal percent
-(918251*0.07*5)/(total_DALY*(1 + 1.95-0.23) - total_DALY)-1
+(918251*0.07*5)/(total_DALY*(1 + 1.95-0.45) - total_DALY)-1
 
 # Net zero cost of policy
-(total_DALY*(1 + 1.95-0.23) - total_DALY)/(0.02*5)
+(total_DALY*(1 + 1.95-0.45) - total_DALY)/(0.02*5)
 
 
 #### Chart ####
@@ -116,7 +116,7 @@ ratios <- matrix(NA, nrow = length(disability_weights), ncol = length(proportion
 # Compute the ratio for each combination of disability weight and proportion.
 for (j in seq_along(proportions)) {
   for (i in seq_along(disability_weights)) {
-    ratios[i, j] <- (918251 * proportions[j] * disability_weights[i] * 5) / (total_DALY*(1 + 1.95-0.23) - total_DALY) - 1
+    ratios[i, j] <- (918251 * proportions[j] * disability_weights[i] * 5) / (total_DALY*(1 + 1.95-0.45) - total_DALY) - 1
   }
 }
 
@@ -176,6 +176,8 @@ accident_DALYs*(1 + 0.25) - accident_DALYs
 ((2454*0.02*(6/12)) + (2371*0.02*(4/12)))/(accident_DALYs*(1 + 0.25))-1
 ((2454*0.02*(6/12)*.25) + (2371*0.02*(4/12)*.25))
 ((2454*0.02*(6/12)*.25) + (2371*0.02*(4/12)*.25))/(accident_DALYs*(1 + 0.25))-1
+
+((2454*0.02*(6/12)*.50) + (2371*0.02*(4/12)*.50))/(accident_DALYs*(1 + 0.25))-1
 
 # Upper bound with DW of 0.07 (disturbance)
 (2454*0.07*(6/12)) + (2371*0.07*(4/12))
